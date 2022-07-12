@@ -133,6 +133,37 @@
         <button id="novousuario_enviar">Entrar</button>
     </form>
 
+    <form>
+        <h1>Novo Livro</h1>
+        <div>
+            <label for="nameLivro">Nome</label><br>
+            <input type="text" name="nameLivro" id="novoLivro_name">
+        </div>
+        <button id="novousuario_enviar">Entrar</button>
+    </form>
+
+    <form>
+        <h1>Consultar Livro</h1>
+        <div>
+            <label for="nameLivro">Nome</label><br>
+            <input type="text" name="nameLivro" id="novoLivro_name">
+        </div>
+        <button id="novousuario_enviar">Consultar</button>
+    </form>
+
+    <form>
+        <h1>Novo Emprestimo</h1>
+        <div>
+            <label for="IDLivro">Nome</label><br>
+            <input type="number" name="IDLivro" id="novoEmprestimo_IDLivro">
+        </div>
+        <div>
+            <label for="IDUsuario">Nome</label><br>
+            <input type="number" name="IDUsuario" id="novoEmprestimo_IDUsuario">
+        </div>
+        <button id="novousuario_enviar">Emprestar</button>
+    </form>
+
     <script>
         document.getElementById('novousuario_enviar').onclick = (e) => {
             e.preventDefault();
