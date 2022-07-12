@@ -114,8 +114,7 @@ public class Server {
                         Map<String, String> params = queryToMap(t.getRequestURI().getQuery());
                         String sql;
                         sql = "insert into livros (nomeLivro, disponibilidade) values ('"
-                                + params.get("nome") + "', " + params.get("disponibilidade")
-                                + ");";
+                                + params.get("nome") + "', " + 1 + ");";
                         System.out.println(sql);
                         stmt.execute(sql);
 
