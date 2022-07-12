@@ -32,13 +32,55 @@ document.getElementById('loginusuario_enviar').onclick = (e) => {
     })
 }
 
-document.getElementById('novoLivro_enviar').onclick = (e) => {
+document.getElementById('novolivro_enviar').onclick = (e) => {
     e.preventDefault();
     const name = document.getElementById('novoLivro_name').value;
 
     axios.post('http://localhost:8000/api/createbook', {}, {
         params: {
             nome: name,
+        }
+    })
+}
+
+document.getElementById('consultarlivro_enviar').onclick = (e) => {
+    e.preventDefault();
+    const name = document.getElementById('consultarlivro_name').value;
+
+    axios.get('http://localhost:8000/api/readbooks', {
+        params: {
+            nome: name,
+        }
+    }).then((data) => {
+        const inner = data.data.items.reduce((prev, val) => {
+            return prev + '<div>' + val.id.toString().padStart(3, '0') + val.nome.padStart(20, '_') + "_" + (val.disponibilidade === 'true' ? '__Sim__' : '__Não__') + '</div>'
+        }, `<div>${'id'.padStart(3, '_')}${'nome'.padStart(20, '_')}${'_Dispon.'}</div>`)
+        document.getElementById("consultarlivro_resposta").innerHTML = inner;
+    })
+}
+
+document.getElementById('novoemprestimo_enviar').onclick = (e) => {
+    e.preventDefault();
+    const idLivro = document.getElementById('novoEmprestimo_IDLivro').value;
+    const idUsuario = document.getElementById('novoEmprestimo_IDUsuario').value;
+
+    axios.post('http://localhost:8000/api/createemprestimo', {}, {
+        params: {
+            idUsuario,
+            idLivro
+        }
+    })
+}
+
+document.getElementById('devolveremprestimo_enviar').onclick = (e) => {
+    e.preventDefault();
+    const idLivro = document.getElementById('devolverEmprestimo_IDLivro').value;
+    const idUsuario = document.getElementById('devolverEmprestimo_IDUsuario').value;
+
+    axios.post('http://localhost:8000/api/devolveremprestimo', {}, {
+        params: {
+            idUsuario,
+            idLivro
         }
     })
 }

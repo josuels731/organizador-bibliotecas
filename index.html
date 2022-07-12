@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=monospace:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
 
     <title>Smartinline</title>
@@ -34,7 +34,7 @@
             overflow-x: hidden;
             overflow-y: auto;
 
-            font-family: Poppins;
+            font-family: monospace;
             font-weight: 400;
 
             background-color: #FCFDFC;
@@ -58,7 +58,7 @@
         }
 
         input {
-            font-family: Poppins;
+            font-family: monospace;
             font-weight: 400;
             font-size: 1em;
             padding: 0;
@@ -66,7 +66,7 @@
         }
 
         button {
-            font-family: Poppins;
+            font-family: monospace;
             font-weight: 400;
             width: 15em;
             margin: 0 5em;
@@ -138,7 +138,7 @@
             <label for="admin">Administrador</label><br>
         </div>
 
-        <button id="novousuario_enviar">Enviar</button>
+        <button id="novousuario_enviar">Criar Usuario</button>
     </form>
 
     <form>
@@ -158,29 +158,31 @@
     <form>
         <h1>Novo Livro</h1>
         <div>
-            <label for="nameLivro">Nome</label><br>
+            <label for="nameLivro">Nome Livro</label><br>
             <input type="text" name="nameLivro" id="novoLivro_name">
         </div>
-        <button id="novolivro_enviar">Entrar</button>
+        <button id="novolivro_enviar">Criar Livro</button>
     </form>
 
     <form>
         <h1>Consultar Livro</h1>
         <div>
-            <label for="nameLivro">Nome</label><br>
+            <label for="nameLivro">Nome Livro</label><br>
             <input type="text" name="nameLivro" id="consultarlivro_name">
         </div>
         <button id="consultarlivro_enviar">Consultar</button>
+
+        <div id="consultarlivro_resposta"></div>
     </form>
 
     <form>
         <h1>Novo Emprestimo</h1>
         <div>
-            <label for="IDLivro">Nome</label><br>
+            <label for="IDLivro">Id Livro</label><br>
             <input type="number" name="IDLivro" id="novoEmprestimo_IDLivro">
         </div>
         <div>
-            <label for="IDUsuario">Nome</label><br>
+            <label for="IDUsuario">Id Usuario</label><br>
             <input type="number" name="IDUsuario" id="novoEmprestimo_IDUsuario">
         </div>
         <button id="novoemprestimo_enviar">Emprestar</button>
@@ -189,11 +191,11 @@
     <form>
         <h1>Devolver Emprestimo</h1>
         <div>
-            <label for="IDLivro">Nome</label><br>
+            <label for="IDLivro">Id Livro</label><br>
             <input type="number" name="IDLivro" id="devolverEmprestimo_IDLivro">
         </div>
         <div>
-            <label for="IDUsuario">Nome</label><br>
+            <label for="IDUsuario">Id Usuario</label><br>
             <input type="number" name="IDUsuario" id="devolverEmprestimo_IDUsuario">
         </div>
         <button id="devolveremprestimo_enviar">Devolver</button>
