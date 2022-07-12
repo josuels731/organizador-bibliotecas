@@ -31,3 +31,14 @@ document.getElementById('loginusuario_enviar').onclick = (e) => {
         document.getElementById('loginusuario_status').textContent = 'Falha';
     })
 }
+
+document.getElementById('novoLivro_enviar').onclick = (e) => {
+    e.preventDefault();
+    const name = document.getElementById('novoLivro_name').value;
+
+    axios.post('http://localhost:8000/api/createbook', {}, {
+        params: {
+            nome: name,
+        }
+    })
+}
