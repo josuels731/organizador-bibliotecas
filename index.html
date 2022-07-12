@@ -31,7 +31,8 @@
 
 
             box-sizing: border-box;
-            overflow: hidden;
+            overflow-x: hidden;
+            overflow-y: auto;
 
             font-family: Poppins;
             font-weight: 400;
@@ -44,15 +45,31 @@
             -moz-osx-font-smoothing: grayscale;
         }
 
+        form {
+            width: 100%;
+            margin: auto;
+            border-bottom: solid 1px #263730;
+            padding: 0 5em;
+            padding-bottom: 1em;
+        }
+
+        form>div {
+            width: 20em;
+        }
+
         input {
             font-family: Poppins;
             font-weight: 400;
             font-size: 1em;
+            padding: 0;
+            width: 20em;
         }
 
         button {
             font-family: Poppins;
             font-weight: 400;
+            width: 15em;
+            margin: 0 5em;
         }
 
         svg {
@@ -62,6 +79,10 @@
 
         p {
             margin: 0;
+        }
+
+        h1 {
+            margin-bottom: 0em;
         }
 
 
@@ -140,16 +161,16 @@
             <label for="nameLivro">Nome</label><br>
             <input type="text" name="nameLivro" id="novoLivro_name">
         </div>
-        <button id="novousuario_enviar">Entrar</button>
+        <button id="novoLivro_enviar">Entrar</button>
     </form>
 
     <form>
         <h1>Consultar Livro</h1>
         <div>
             <label for="nameLivro">Nome</label><br>
-            <input type="text" name="nameLivro" id="novoLivro_name">
+            <input type="text" name="nameLivro" id="consultarlivro_name">
         </div>
-        <button id="novousuario_enviar">Consultar</button>
+        <button id="consultarlivro_enviar">Consultar</button>
     </form>
 
     <form>
@@ -162,7 +183,7 @@
             <label for="IDUsuario">Nome</label><br>
             <input type="number" name="IDUsuario" id="novoEmprestimo_IDUsuario">
         </div>
-        <button id="novousuario_enviar">Emprestar</button>
+        <button id="novoEmprestimo_enviar">Emprestar</button>
     </form>
 
     <script src="/scripts.js"></script>
