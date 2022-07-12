@@ -71,7 +71,7 @@ public class Server {
                     break;
                 default:
                     String response = "Method not Allowed";
-                    t.sendResponseHeaders(200, response.getBytes().length);
+                    t.sendResponseHeaders(405, response.getBytes().length);
                     OutputStream os = t.getResponseBody();
                     os.write(response.getBytes());
                     os.close();
@@ -135,7 +135,7 @@ public class Server {
                     break;
                 default:
                     String response = "Method not Allowed";
-                    t.sendResponseHeaders(200, response.getBytes().length);
+                    t.sendResponseHeaders(405, response.getBytes().length);
                     OutputStream os = t.getResponseBody();
                     os.write(response.getBytes());
                     os.close();
@@ -206,7 +206,7 @@ public class Server {
                     break;
                 default:
                     String response = "Method not Allowed";
-                    t.sendResponseHeaders(200, response.getBytes().length);
+                    t.sendResponseHeaders(405, response.getBytes().length);
                     OutputStream os = t.getResponseBody();
                     os.write(response.getBytes());
                     os.close();
@@ -252,13 +252,14 @@ public class Server {
                                 + params.get("nome") + "';";
 
                         ResultSet rs = stmt.executeQuery(sql);
-                        String response = "{items: [";
+                        String response = "{\"items\": [";
                         while (rs.next()) {
-                            response += "\"id\": " + rs.getInt("cdLivro") + ", \"nome\": \"" + rs.getString("nomeLivro")
+                            response += "{\"id\": " + rs.getInt("cdLivro") + ", \"nome\": \""
+                                    + rs.getString("nomeLivro")
                                     + "\", \"disponibilidade\": \"" + rs.getBoolean("disponibilidade") + "\""
-                                    + (rs.isLast() ? "]}" : ",");
+                                    + (rs.isLast() ? "}]}" : "},");
                         }
-                        t.getResponseHeaders().add("Content-Type", "text/html");
+                        t.getResponseHeaders().add("Content-Type", "application/json");
                         t.sendResponseHeaders(200, response.getBytes().length);
                         OutputStream os = t.getResponseBody();
                         os.write(response.getBytes());
@@ -275,7 +276,7 @@ public class Server {
                     break;
                 default:
                     String response = "Method not Allowed";
-                    t.sendResponseHeaders(200, response.getBytes().length);
+                    t.sendResponseHeaders(405, response.getBytes().length);
                     OutputStream os = t.getResponseBody();
                     os.write(response.getBytes());
                     os.close();
@@ -347,7 +348,7 @@ public class Server {
                     break;
                 default:
                     String response = "Method not Allowed";
-                    t.sendResponseHeaders(200, response.getBytes().length);
+                    t.sendResponseHeaders(405, response.getBytes().length);
                     OutputStream os = t.getResponseBody();
                     os.write(response.getBytes());
                     os.close();
@@ -385,7 +386,7 @@ public class Server {
             }
 
             switch (t.getRequestMethod()) {
-                case "PATCH":
+                case "POST":
                     try {
                         Map<String, String> params = queryToMap(t.getRequestURI().getQuery());
                         String sql;
@@ -416,7 +417,7 @@ public class Server {
                     break;
                 default:
                     String response = "Method not Allowed";
-                    t.sendResponseHeaders(200, response.getBytes().length);
+                    t.sendResponseHeaders(405, response.getBytes().length);
                     OutputStream os = t.getResponseBody();
                     os.write(response.getBytes());
                     os.close();
