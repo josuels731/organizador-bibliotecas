@@ -16,6 +16,8 @@
     <title>Smartinline</title>
     <meta name="description" content="Front para comunicar com server feito para a N3" />
 
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
     <style>
         :root {
             user-select: none;
@@ -111,12 +113,31 @@
             <input type="password" name="password" id="novousuario_password">
         </div>
         <div style="display: flex; align-items: center;">
-            <input type="radio" name="admin" id="novousuario_admin">
+            <input type="checkbox" name="admin" id="novousuario_admin">
             <label for="admin">Administrador</label><br>
         </div>
 
         <button id="novousuario_enviar">Enviar</button>
     </form>
+
+    <script>
+        document.getElementById('novousuario_enviar').onclick = (e) => {
+            e.preventDefault();
+            const name = document.getElementById('novousuario_name').value;
+            const address = document.getElementById('novousuario_address').value;
+            const password = document.getElementById('novousuario_password').value;
+            const admin = document.getElementById('novousuario_admin').checked ? 1 : 0;
+
+            axios.post('http://localhost:8000/api/createuser', {}, {
+                params: {
+                    nome: name,
+                    endereco: address,
+                    admin,
+                    senha: password
+                }
+            })
+        }
+    </script>
 </body>
 
 </html>
